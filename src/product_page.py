@@ -1,7 +1,9 @@
 from selenium.webdriver.common.by import By
 
+from src.base_func import BasePage
 
-class ProductPageLocators:
+
+class ProductPage(BasePage):
     PRODUCT_TITLE = (By.CSS_SELECTOR, 'h1')
     PRODUCT_PRICE = (By.CSS_SELECTOR, 'li>h2')
     ADD_TO_CART_BUTTON = (By.ID, 'button-cart')
