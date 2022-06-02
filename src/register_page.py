@@ -37,21 +37,28 @@ class RegisterPage(BasePage):
 
         first_name_input = self.browser.find_element(*RegisterPage.FIRSTNAME_INPUT)
         first_name_input.send_keys(f'{first_name}{test_data}')
+
         last_name_input = self.browser.find_element(*RegisterPage.LASTNAME_INPUT)
         last_name_input.send_keys(last_name)
+
         email_input = self.browser.find_element(*RegisterPage.EMAIL_INPUT)
         email_input.send_keys(f'{self.browser.session_id}{test_data}@mail.ru')
+
         telephone_input = self.browser.find_element(*RegisterPage.TEL_INPUT)
         telephone_input.send_keys(tel)
+
         password_input = self.browser.find_element(*RegisterPage.PASS_INPUT)
         password_input.send_keys(password)
+
         confirm_password_input = self.browser.find_element(*RegisterPage.CONFIRM_PASS_INPUT)
         confirm_password_input.send_keys(password)
 
         policy_agree = self.browser.find_element(*RegisterPage.POLICY_CHECKBOX)
         policy_agree.click()
+
         continue_button = self.browser.find_element(*RegisterPage.SUBMIT)
         continue_button.click()
+
         success_page = self.browser.current_url
         self.browser.get(success_page)
         return self.browser
