@@ -93,10 +93,3 @@ class AdminPage(BasePage):
         delete_button.click()
         alert = self.browser.switch_to.alert
         alert.accept()
-
-    def check_result_message_with_empty_scope(self):
-        """Checking the result message with no founded product items"""
-        result = self.browser.find_element(*AdminPage.RESULT_MESSAGE)
-        expected_res = 'No results!'
-        assert result.text == expected_res, f'Wrong result message. Expected: {expected_res}, ' \
-                                            f'actual result: {result.text}'

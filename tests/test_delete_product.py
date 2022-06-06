@@ -14,4 +14,7 @@ def test_delete_new_product(browser):
     page.check_item_after_filter()
     page.delete_item()
     page.visibility_of_element(AdminPage.SUCCESS_MESSAGE)
-    page.check_result_message_with_empty_scope()
+
+    result = browser.find_element(*AdminPage.RESULT_MESSAGE)
+    expected_res = 'No results!'
+    page.check_result_as_expected(result.text, expected_res)
