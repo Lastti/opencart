@@ -1,7 +1,9 @@
 from selenium.webdriver.common.by import By
 
+from src.base_func import BasePage
 
-class CatalogPageLocators:
+
+class CatalogPage(BasePage):
     CATALOG_SUBTITLE = (By.LINK_TEXT, 'Desktops')
     INPUT_SORT = (By.CSS_SELECTOR, "[for='input-sort']")
     INPUT_LIMIT = (By.CSS_SELECTOR, "[for='input-limit']")
