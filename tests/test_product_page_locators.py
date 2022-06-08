@@ -1,9 +1,9 @@
 from src.product_page import ProductPage
-from src.test_data import PRODUCT
+from src.test_data import TestData
 
 
 def test_product_page_locators(browser):
-    browser.get(browser.url + PRODUCT)
+    browser.get(browser.url + TestData.PRODUCT)
     page = ProductPage(browser)
 
     page.visibility_of_element(ProductPage.PRODUCT_TITLE)

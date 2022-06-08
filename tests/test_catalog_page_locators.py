@@ -1,9 +1,9 @@
 from src.catalog_page import CatalogPage
-from src.test_data import PRODUCT_GROUP
+from src.test_data import TestData
 
 
 def test_catalog_page_locators(browser):
-    browser.get(browser.url + PRODUCT_GROUP)
+    browser.get(browser.url + TestData.PRODUCT_GROUP)
     page = CatalogPage(browser)
 
     page.visibility_of_element(CatalogPage.CATALOG_SUBTITLE)
