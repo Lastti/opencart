@@ -1,7 +1,12 @@
+import allure
+
 from src.product_page import ProductPage
 from src.test_data import TestData
 
 
+@allure.epic('Product Page')
+@allure.title('Check product page locators')
+@allure.severity('Normal')
 def test_product_page_locators(browser):
     browser.get(browser.url + TestData.PRODUCT)
     page = ProductPage(browser)
