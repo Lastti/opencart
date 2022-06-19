@@ -1,3 +1,4 @@
+import allure
 from selenium.webdriver.common.by import By
 
 from src.base_func import BasePage
@@ -12,11 +13,19 @@ class MainPage(BasePage):
     MENU = (By.CSS_SELECTOR, '.navbar-collapse')
     PRODUCT = (By.CSS_SELECTOR, '.product-layout')
 
+    @allure.step('Switching to another currency')
     def switch_currency_to(self, new_currency):
         """Switch to another currency from current"""
-        currency_menu = self.browser.find_element(*MainPage.CURRENCY_BUTTON)
-        currency_menu.click()
-        desirable_currency = self.browser.find_element(By.NAME, new_currency)
-        desirable_currency.click()
-        actual_currency = self.browser.find_element(*MainPage.ACTUAL_CURRENCY)
+        with allure.step('Click currency menu button'):
+            currency_menu = MainPage.find_element_by(self, MainPage.CURRENCY_BUTTON)
+            currency_menu.click()
+
+        new_currency_loc = (By.NAME, new_currency)
+        with allure.step('Click desirable currency button'):
+            desirable_currency = MainPage.find_element_by(self, new_currency_loc)
+            desirable_currency.click()
+
+        with allure.step('Find actual currency'):
+            actual_currency = MainPage.find_element_by(self, MainPage.ACTUAL_CURRENCY)
+        self.logger.info('Successfully switched to {} currency'.format(new_currency))
         return actual_currency

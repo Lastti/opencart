@@ -1,6 +1,11 @@
+import allure
+
 from src.register_page import RegisterPage
 
 
+@allure.epic('Registration Page')
+@allure.title('Check registration page locators')
+@allure.severity('Normal')
 def test_register_page_locators(browser):
     browser.get(browser.url)
     page = RegisterPage(browser)

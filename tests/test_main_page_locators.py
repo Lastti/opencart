@@ -1,6 +1,11 @@
+import allure
+
 from src.main_page import MainPage
 
 
+@allure.epic('Main Page')
+@allure.title('Check main page locators')
+@allure.severity('Normal')
 def test_main_page_locators(browser):
     browser.get(browser.url)
     page = MainPage(browser)

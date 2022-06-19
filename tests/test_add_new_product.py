@@ -1,8 +1,12 @@
-from src.admin_page import AdminPage
+import allure
 
+from src.admin_page import AdminPage
 from src.test_data import TestData
 
 
+@allure.epic('Admin Page')
+@allure.title('Check adding of a new product')
+@allure.severity('Critical')
 def test_add_new_product(browser):
     browser.get(browser.url + TestData.ADMIN)
     page = AdminPage(browser)
